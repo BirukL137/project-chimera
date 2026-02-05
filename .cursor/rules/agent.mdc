@@ -100,15 +100,17 @@ This project is Project Chimera, an autonomous influencer system built using Spe
 ## Prime Directive
 NEVER generate or modify implementation code without first consulting the specs/ directory.
 
-## Spec Authority
-- specs/_meta.md is the highest authority.
-- specs/functional.md defines agent goals.
-- specs/technical.md defines executable contracts.
+## Mandatory Pre-Action Checklist
+Before writing any code or tests:
+- Confirm relevant spec exists
+- Confirm spec is unambiguous
+- Cite the spec file being used
 
 ## Workflow Rules
 - Always explain the plan before writing code.
-- If specifications are missing or ambiguous, request clarification instead of assuming behavior.
-- Prefer updating specifications over guessing implementation details.
+- Prefer updating specs over guessing behavior
+- If specs are missing or contradictory, stop and ask for clarification
+
 
 ## Boundaries
 - All external interactions must be mediated through MCP servers.
