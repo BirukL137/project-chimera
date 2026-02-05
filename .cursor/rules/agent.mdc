@@ -89,3 +89,29 @@ Before generating any response, explicitly check:
 [ ] Does this interaction show performance patterns? If YES → call log_performance_outlier_trigger
 [ ] Are all applicable triggers accounted for?
 ***** mandatory workflow *************
+
+---
+
+# Project Chimera – Domain & Governance Context
+
+## Project Context
+This project is Project Chimera, an autonomous influencer system built using Spec-Driven Development (SDD).
+
+## Prime Directive
+NEVER generate or modify implementation code without first consulting the specs/ directory.
+
+## Spec Authority
+- specs/_meta.md is the highest authority.
+- specs/functional.md defines agent goals.
+- specs/technical.md defines executable contracts.
+
+## Workflow Rules
+- Always explain the plan before writing code.
+- If specifications are missing or ambiguous, request clarification instead of assuming behavior.
+- Prefer updating specifications over guessing implementation details.
+
+## Boundaries
+- All external interactions must be mediated through MCP servers.
+- Runtime agents may only use defined skills under skills/.
+- Developer MCP tools are forbidden at runtime.
+
