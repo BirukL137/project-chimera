@@ -1,7 +1,5 @@
 # Architecture Strategy — Project Chimera
 
-**Task-1: The Strategist (Research & Foundation)**
-
 ## 1. Purpose of This Document
 
 This document captures the **early-stage architectural strategy** for Project Chimera.
@@ -44,7 +42,7 @@ Each agent is a:
 
 The system must allow a **small human team** to orchestrate **large fleets of agents** without micromanagement.
 
----
+---s
 
 ## 3. Architectural Philosophy
 
