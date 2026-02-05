@@ -1,6 +1,11 @@
-## Trend Fetch API Contract
+# Technical Specification — Project Chimera
+
+## API Contracts
+
+### Trend Fetch Contract
 
 Input:
+```json
 {
   "platform": "string",
   "region": "string",
@@ -17,3 +22,18 @@ Output:
     }
   ]
 }
+
+## Database Schema (High-Level)
+
+erDiagram
+  VIDEO ||--o{ METADATA : has
+  VIDEO {
+    uuid id
+    string platform
+    datetime created_at
+  }
+  METADATA {
+    string topic
+    number relevance_score
+  }
+
