@@ -1,5 +1,3 @@
-Here’s a complete draft you can paste into `specs/openclaw_integration.md`.
-
 ```markdown
 # Project Chimera — OpenClaw Integration Specification
 
