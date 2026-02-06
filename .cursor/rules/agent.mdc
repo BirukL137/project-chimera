@@ -92,28 +92,19 @@ Before generating any response, explicitly check:
 
 ---
 
-# Project Chimera – Domain & Governance Context
+# Project Context
+This is Project Chimera, an autonomous influencer system built using
+spec-driven development and agentic orchestration.
 
-## Project Context
-This project is Project Chimera, an autonomous influencer system built using Spec-Driven Development (SDD).
+# Prime Directive
+NEVER generate or modify code or specs without first consulting the specs/ directory.
 
-## Prime Directive
-NEVER generate or modify implementation code without first consulting the specs/ directory.
+# Traceability Rule
+Before writing or modifying anything, explain:
+- What you plan to do
+- Which spec it relates to
+- What assumptions you are making
 
-## Mandatory Pre-Action Checklist
-Before writing any code or tests:
-- Confirm relevant spec exists
-- Confirm spec is unambiguous
-- Cite the spec file being used
-
-## Workflow Rules
-- Always explain the plan before writing code.
-- Prefer updating specs over guessing behavior
-- If specs are missing or contradictory, stop and ask for clarification
-
-
-## Boundaries
-- All external interactions must be mediated through MCP servers.
-- Runtime agents may only use defined skills under skills/.
-- Developer MCP tools are forbidden at runtime.
+# Scope Discipline
+If a request is underspecified or conflicts with specs, ask for clarification.
 
