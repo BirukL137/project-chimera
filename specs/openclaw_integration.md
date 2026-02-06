@@ -1,4 +1,3 @@
-```markdown
 # Project Chimera — OpenClaw Integration Specification
 
 > This document defines how Chimera publishes its **Availability** / **Status** to the **OpenClaw** network.
