@@ -1,3 +1,11 @@
+# Project Chimera — Master Meta Specification
+
+> This document defines the **intent, boundaries, and hard constraints** for Project Chimera.
+> It is **spec-only** and intentionally avoids implementation details.  
+> (Assumption: Detailed functional and technical specs will live in separate files and reference this document.)
+
+---
+
 ## 1. Vision
 
 Chimera is an **Autonomous Influencer System** composed of **sovereign, persona-bound agents** that can operate at internet scale while remaining **governable, auditable, and safe**.
@@ -155,4 +163,3 @@ This section lists behaviors that are **architecturally disallowed**, regardless
 - This meta specification is **authoritative**: in case of conflict, other specs must be updated to comply with it.
 
 (Assumption: The spec set is living; this file is updated via the same governed process as other critical artifacts, but with extra scrutiny due to its cross-cutting impact.)
-```
