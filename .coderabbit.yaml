@@ -1,0 +1,43 @@
+# CodeRabbit AI Review Policy (Simulated)
+# Project: Chimera
+# Purpose: Enforce spec alignment and surface security risks
+
+version: 1
+
+review:
+  philosophy:
+    - "Specifications are authoritative"
+    - "Fail closed on ambiguity"
+    - "Prefer explicit rejection over silent acceptance"
+
+  required_checks:
+    spec_alignment:
+      description: >
+        Ensure all code changes align with existing specifications
+        in the specs/ directory.
+      rules:
+        - If code is added or modified:
+            - Verify a corresponding spec exists
+            - Flag if behavior is not described in specs/
+            - Flag if code contradicts specs/_meta.md constraints
+
+    security_awareness:
+      description: >
+        Surface potential security or safety risks for human review.
+      rules:
+        - Flag direct external API calls not mediated by MCP
+        - Flag hidden state, global caches, or side effects in skills
+        - Flag financial or credential-handling logic
+        - Flag unchecked input deserialization or dynamic execution
+
+  reviewer_behavior:
+    tone: "strict but constructive"
+    on_violation:
+      action: "request_changes"
+    on_uncertainty:
+      action: "request_human_review"
+
+notes:
+  - This configuration simulates AI review intent.
+  - No autonomous approval is permitted.
+  - Human reviewers remain the final authority.
