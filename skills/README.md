@@ -1,9 +1,38 @@
 # Chimera Agent Skills
 
-Skills are stateless, deterministic capability packages available to runtime agents.
+## Overview
+Skills are stateless, deterministic capability packages that runtime Chimera agents may invoke to perform specific actions.
 
-Each skill must define:
-- Purpose
-- Input contract
-- Output contract
-- Failure modes
+A Skill represents **what an agent can do**, not how it reasons.
+
+Skills are intentionally constrained to:
+- Reduce hallucination
+- Enforce governance
+- Enable testability and auditing
+
+## Design Principles
+- **Stateless**: Skills do not retain memory between calls
+- **Deterministic**: Same input → same output (or explicit failure)
+- **Isolated**: No direct access to developer tools or internal state
+- **Contract-First**: Inputs and outputs must match defined schemas
+
+## Skill Lifecycle
+1. Agent selects a Skill based on its goal
+2. Agent provides structured input
+3. Skill executes via MCP or internal logic
+4. Output is returned for validation or further reasoning
+
+## Skill vs MCP
+- **MCP Servers**: External bridges (APIs, databases, filesystems)
+- **Skills**: Agent-facing capabilities that may internally use MCP
+
+Runtime agents may never call MCP servers directly — only through Skills.
+
+## Required Skill Structure
+Each skill directory must contain:
+- README.md (contract & intent)
+
+## Available Skills (Draft)
+- skill_fetch_trends
+- skill_generate_content
+- skill_publish_status
