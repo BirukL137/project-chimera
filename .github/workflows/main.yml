@@ -1,0 +1,25 @@
+name: Chimera CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  spec_and_governance_check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify specs exist
+        run: |
+          if [ ! -d "specs" ]; then
+            echo "specs/ directory missing. Spec-first violation."
+            exit 1
+          fi
+          echo "specs/ directory found."
+
+      - name: Governance placeholder
+        run: |
+          echo "Governance checks will be enforced here."
