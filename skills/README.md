@@ -22,6 +22,17 @@ Skills are intentionally constrained to:
 3. Skill executes via MCP or internal logic
 4. Output is returned for validation or further reasoning
 
+## Skill Execution Model
+
+- Skills are functionally stateless:
+  - They do not retain memory between invocations.
+  - They do not write to local or long-term storage.
+- Any external side effects (API calls, file writes, blockchain interactions):
+  - Must be explicitly declared in the skill interface.
+  - Are executed only through MCP-managed tools.
+- Skills may read inputs and return outputs only.
+- Persistence, memory updates, and financial actions are handled outside skills by governed system components.
+
 ## Skill vs MCP
 - **MCP Servers**: External bridges (APIs, databases, filesystems)
 - **Skills**: Agent-facing capabilities that may internally use MCP
