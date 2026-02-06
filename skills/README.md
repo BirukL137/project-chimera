@@ -1,49 +1,38 @@
-# Chimera Agent Skills
+---
+# Chimera Runtime Skills
 
-## Overview
-Skills are stateless, deterministic capability packages that runtime Chimera agents may invoke to perform specific actions.
+## What a Skill is
 
-A Skill represents **what an agent can do**, not how it reasons.
+A **Skill** is a governed, agent-facing capability that performs a bounded action via a **contract-first JSON interface**.
 
-Skills are intentionally constrained to:
-- Reduce hallucination
-- Enforce governance
-- Enable testability and auditing
+Skills define **what an agent can do** (capabilities), not how it reasons.
 
-## Design Principles
-- **Stateless**: Skills do not retain memory between calls
-- **Deterministic**: Same input → same output (or explicit failure)
-- **Isolated**: No direct access to developer tools or internal state
-- **Contract-First**: Inputs and outputs must match defined schemas
+## Why Skills exist
 
-## Skill Lifecycle
-1. Agent selects a Skill based on its goal
-2. Agent provides structured input
-3. Skill executes via MCP or internal logic
-4. Output is returned for validation or further reasoning
+Skills exist as a controlled capability layer to:
 
-## Skill Execution Model
+- Keep **authority boundaries** explicit (agents cannot touch external systems directly)
+- Improve **auditability** (structured inputs/outputs)
+- Reduce **unsafe autonomy** by forcing actions through constrained contracts
+- Improve **testability** by requiring deterministic behavior
 
-- Skills are functionally stateless:
-  - They do not retain memory between invocations.
-  - They do not write to local or long-term storage.
-- Any external side effects (API calls, file writes, blockchain interactions):
-  - Must be explicitly declared in the skill interface.
-  - Are executed only through MCP-managed tools.
-- Skills may read inputs and return outputs only.
-- Persistence, memory updates, and financial actions are handled outside skills by governed system components.
+## Core principles
 
-## Skill vs MCP
-- **MCP Servers**: External bridges (APIs, databases, filesystems)
-- **Skills**: Agent-facing capabilities that may internally use MCP
+- **Stateless**: no hidden memory across calls.
+- **Deterministic**: same declared input → same output, or explicit failure.
+- **Contract-first**: inputs/outputs must match the JSON schema defined in each skill README.
+- **Orchestrator-governed**: skills are selected, permitted, and invoked under orchestrator policy; agents do not expand their own capabilities.
+- **No direct external access by agents**: only skills may interface with external bridges (via MCP); runtime agents never call MCP directly.
 
-Runtime agents may never call MCP servers directly — only through Skills.
+## High-level lifecycle
 
-## Required Skill Structure
-Each skill directory must contain:
-- README.md (contract & intent)
+1. **Request**: an agent requests a specific skill by name with structured JSON input.
+2. **Validate**: the skill validates input against its contract (or fails explicitly).
+3. **Execute**: the skill performs the bounded action (internally using governed tool bridges as needed).
+4. **Return**: the skill returns structured JSON output for evaluation, logging, and next-step reasoning.
 
-## Available Skills (Draft)
-- skill_fetch_trends
-- skill_generate_content
-- skill_publish_status
+## Available skills
+
+- `skill_fetch_trends/`
+- `skill_download_video/`
+- `skill_transcribe_audio/`

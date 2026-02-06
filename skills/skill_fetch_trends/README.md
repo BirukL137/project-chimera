@@ -1,16 +1,47 @@
+---
+# `skill_fetch_trends`
+
 ## Purpose
-Fetch trending topics via MCP providers.
 
-## Input
-- platform: string
-- region: string
-- limit: integer
+Provide a bounded, read-only way for runtime agents to request a structured snapshot of current trends relevant to a platform and region.
 
-## Output
-- List of trend objects as defined in specs/technical.md
+## Input contract (JSON)
 
-## Failure Modes
-- MCP provider unavailable
-- Invalid input schema
-- Rate limit exceeded
-- Budget governor rejection
+```json
+{
+  "platform": "string",
+  "region": "string",
+  "limit": "integer",
+  "topic_hints": ["string"]
+}
+```
+
+Field notes:
+- `platform`: logical platform identifier (not a direct API endpoint).
+- `region`: logical region identifier.
+- `limit`: maximum number of trend items requested.
+- `topic_hints`: optional strings to narrow relevance.
+
+## Output contract (JSON)
+
+```json
+{
+  "trends": [
+    {
+      "topic": "string",
+      "score": "number",
+      "timestamp": "ISO-8601"
+    }
+  ],
+  "source": {
+    "platform": "string",
+    "region": "string"
+  }
+}
+```
+
+## Explicit constraints
+
+- **No hidden state**: the skill retains no memory between calls.
+- **No agent-to-external access**: runtime agents never access external systems directly; any external interaction occurs only inside this skill via governed tool bridges.
+- **Deterministic contract**: given the same declared input, the skill returns the same structured output or an explicit failure.
