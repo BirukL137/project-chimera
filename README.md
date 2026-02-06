@@ -53,6 +53,7 @@ These constraints are defined in `specs/_meta.md` and apply to all future code.
 ├── Dockerfile               # Reproducible execution environment
 ├── Makefile                 # Standardized developer commands
 └── README.md                
+```
 
 ## Development Workflow
 
