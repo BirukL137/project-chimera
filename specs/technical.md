@@ -1,6 +1,3 @@
-Here’s a complete draft you can paste into `specs/technical.md`.
-
-```markdown
 # Project Chimera — Technical Specification
 
 > This document defines key **API contracts**, **data model / ERD**, and the **technical boundaries between Agents, Skills, and MCP**.  
