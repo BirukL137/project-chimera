@@ -1,2 +1,3 @@
 main.py
 .python-version
+tests/__pycache__
